@@ -47,10 +47,10 @@
               el: '#app',
               data: {
                   list:[
-                    {'title':'E-shop','url':'http://e-shop.freecluster.eu/','description':'PHP Laravel + Vue 2'},
-                    {'title':'CMS website','url':'https://tumless.com/','description':'PHP Laravel'},
-                    {'title':'SPA website','url':'https://tumless.com/tumdaily#/','description':'PHP Laravel + Vue 2 + vue route + vuex'},
-                    {'title':'MOU checking namelist','url':'http://www.moubangkok.epizy.com/index.php','description':'PHP + jQuery '},
+                    {'title':'E-shop','img':'assets/images/e-shop.png','url':'http://e-shop.freecluster.eu/','description':'PHP Laravel + Vue 2'},
+                    {'title':'CMS website','img':'assets/images/tumless.png','url':'https://tumless.com/','description':'PHP Laravel'},
+                    {'title':'SPA website','img':'assets/images/tumdaily.png','url':'https://tumless.com/tumdaily#/','description':'PHP Laravel + Vue 2 + vue route + vuex'},
+                    {'title':'MOU checking namelist','img':'assets/images/mou.png','url':'http://www.moubangkok.epizy.com/index.php','description':'PHP + jQuery '},
                   ], 
               }, 
           });
@@ -177,7 +177,7 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="left-image">
-                  <img src="assets/images/left-image.jpg" alt="" />
+                  <img :src="res.img" alt="" />
                 </div>
               </div>
               <div class="col-md-8">
@@ -275,7 +275,7 @@
       </section>
     </div>
 
-    </div>
+    </div> 
   </body>
 
   <script src="assets/js/isotope.min.js"></script>
