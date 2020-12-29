@@ -1,55 +1,286 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-        .alert { 
-            padding: .75rem 2.5rem;
-        }
-        .alert-success { 
-            color: #050605;
-            background-color: #d4edda7d; 
-        }
-        
-    </style>
-</head>
-<body> 
-<div class="container" style="background:unset;">
-    <div style="text-align:center;font-size:28px;font-weight:bold;padding-bottom:5rem;">Portfolio</div>
-         
-    
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">E-shop</h4>
-      <p>PHP Laravel + Vue 2</p>
-      <hr>
-        <a href="http://e-shop.freecluster.eu/" target="_blank" type="button" class="btn btn-outline-info">view</a>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900"
+      rel="stylesheet"
+    />
+
+    <title>Reflux HTML CSS Template</title>
+ 
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-style.css" />
+    <link rel="stylesheet" href="assets/css/owl.css" />
+    <link rel="stylesheet" href="assets/css/lightbox.css" />
+
+
+  </head>
+
+<!-- production version, optimized for size and speed -->
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/vue"></script>
+<script src="https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+ 
+
+<script>
+  (function($) { 
+      $(document).ready(function() {
+          var app = new Vue({
+              el: '#app',
+              data: {
+                  list:[
+                    {'title':'E-shop','url':'http://e-shop.freecluster.eu/','description':'PHP Laravel + Vue 2'},
+                    {'title':'CMS website','url':'https://tumless.com/','description':'PHP Laravel'},
+                    {'title':'SPA website','url':'https://tumless.com/tumdaily#/','description':'PHP Laravel + Vue 2 + vue route + vuex'},
+                    {'title':'MOU checking namelist','url':'http://www.moubangkok.epizy.com/index.php','description':'PHP + jQuery '},
+                  ], 
+              }, 
+          });
+   
+  
+        //according to loftblog tut
+        $(".main-menu li:first").addClass("active");
+  
+        var showSection = function showSection(section, isAnimate) {
+          var direction = section.replace(/#/, ""),
+            reqSection = $(".section").filter(
+              '[data-section="' + direction + '"]'
+            ),
+            reqSectionPos = reqSection.offset().top - 0;
+  
+          if (isAnimate) {
+            $("body, html").animate(
+              {
+                scrollTop: reqSectionPos
+              },
+              800
+            );
+          } else {
+            $("body, html").scrollTop(reqSectionPos);
+          }
+        };
+  
+        var checkSection = function checkSection() {
+          $(".section").each(function() {
+            var $this = $(this),
+              topEdge = $this.offset().top - 80,
+              bottomEdge = topEdge + $this.height(),
+              wScroll = $(window).scrollTop();
+            if (topEdge < wScroll && bottomEdge > wScroll) {
+              var currentId = $this.data("section"),
+                reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+              reqLink
+                .closest("li")
+                .addClass("active")
+                .siblings()
+                .removeClass("active");
+            }
+          });
+        };
+  
+        $(".main-menu").on("click", "a", function(e) {
+          e.preventDefault();
+          showSection($(this).attr("href"), true);
+        });
+  
+        $(window).scroll(function() {
+          checkSection();
+        });
+  
+      });
+
+
+
+      
+  })(jQuery);
+  </script>
+
+  <body> 
+<div id="app">
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="assets/images/author-image.jpg" alt="" /></a>
+            </div>
+            <div class="author-content">
+              <h4>Chatchai [Aod]</h4>
+              <span>Web Devloper</span>
+            </div>
+            <nav class="main-nav" role="navigation">
+              <ul class="main-menu">
+                <li><a href="#section1">Portfolio</a></li>
+                <!-- <li><a href="#section2">What I’m good at</a></li> -->
+                <!-- <li><a href="#section3">My Work</a></li> -->
+                <li><a href="#section4">Contact Me</a></li>
+              </ul>
+            </nav>
+            <!-- <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="https://fb.com/templatemo"
+                    ><i class="fa fa-facebook"></i
+                  ></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div> -->
+            <div class="copyright-text">
+              <!-- <p><Copyright 2019 Reflux Design></p> -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <section class="section about-me" data-section="section1">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Portfolio</h2>
+            <div class="line-dec"></div>
+            <!-- <span >...</span> -->
+          </div>
+
+          <div v-for="res in list" class="left-image-post" style="margin-top:2rem;">
+            <div class="row">
+              <div class="col-md-4">
+                <div class="left-image">
+                  <img src="assets/images/left-image.jpg" alt="" />
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="right-text">
+                  <h4>{{ res.title }}</h4>
+                  <p>
+                    {{ res.description }}
+                  </p>
+                  <div class="white-button">
+                    <a :href="res.url">view</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+
+      <section class="section contact-me" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Contact Me</h2>
+            <div class="line-dec"></div>
+            <!-- <span>...</span> -->
+          </div>
+          <div class="row"> 
+            <div class="right-content">
+              <div class="container">
+                <h5>email: <a href="mailto:aodad619@gamil.com">aodad619@gamil.com</a></h5>
+                <!-- <form id="contact" action="" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="name"
+                          type="text"
+                          class="form-control"
+                          id="name"
+                          placeholder="Your name..."
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input
+                          name="email"
+                          type="text"
+                          class="form-control"
+                          id="email"
+                          placeholder="Your email..."
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input
+                          name="subject"
+                          type="text"
+                          class="form-control"
+                          id="subject"
+                          placeholder="Subject..."
+                          required=""
+                        />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <textarea
+                          name="message"
+                          rows="6"
+                          class="form-control"
+                          id="message"
+                          placeholder="Your message..."
+                          required=""
+                        ></textarea>
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="button">
+                          Send Message
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-    
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Tumless.com</h4>
-      <p>PHP Laravel</p>
-      <hr>
-        <a href="https://tumless.com" target="_blank" type="button" class="btn btn-outline-info">view</a>
+
     </div>
-    
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">Tum-Daily</h4>
-      <p>PHP Laravel + Vue 2 + vue route + vuex</p>
-      <hr>
-        <a href="https://tumless.com/tumdaily#/" target="_blank" type="button" class="btn btn-outline-info">view</a>
-    </div>
-    
-    <div class="alert alert-success" role="alert">
-      <h4 class="alert-heading">MOU checking namelist</h4>
-      <p>PHP + jQuery </p>
-      <hr>
-        <a href="http://www.moubangkok.epizy.com/index.php" target="_blank" type="button" class="btn btn-outline-info">view</a>
-    </div>
-        
-</div>
-         
-</body>
+  </body>
+
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/lightbox.js"></script>
+  <script src="assets/js/custom.js"></script>
+   
 </html>
