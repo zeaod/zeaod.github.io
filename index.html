@@ -48,17 +48,17 @@
               data: {
                   list:[ 
                     {'title':'โรงพบาลสมิติเวชชลบุรี','img':'assets/images/sch.jpg','url':'https://samitivejchonburi.com/','description':'information website'},
-                    {'title':'โรงพบาลสมิติธนบุรี','img':'assets/images/sth.jpg','url':'https://samitivejthonburi.com/','description':'information website'},
-                    {'title':'โรงพบาลสมิติศรีราชา','img':'assets/images/ssh.jpg','url':'https://samitivejsriracha.com/','description':'information website'},
+                    {'title':'โรงพบาลสมิติธนบุรี','img':'assets/images/sth.png','url':'https://samitivejthonburi.com/','description':'information website'},
+                    {'title':'โรงพบาลสมิติศรีราชา','img':'assets/images/ssh.png','url':'https://samitivejsriracha.com/','description':'information website'},
                     {'title':'OR Line liff','img':'assets/images/or.jpg','url':'https://liff.line.me/1604494767-en8YaXrx','description':'Line liff'},
+                    {'title':'thaifexhorec','img':'assets/images/horec.png','url':'https://thaifexhorec-reg.com/th/','description':'register booth'},
+                    // {'title':'stylebangkokfairregistration','img':'assets/images/tcc.png','url':'https://www.stylebangkokfairregistration.com/','description':'register booth'},
                     {'title':'iconsiam','img':'assets/images/iconsiam.jpg','url':'https://iconsiam.com/th','description':'information website'},
                     {'title':'ics','img':'assets/images/ics.jpg','url':'https://ics.iconsiam.com/th','description':'information website & service'},
                     {'title':'hpz','img':'assets/images/hpz.jpg','url':'https://www.health-plaza.com/','description':'E-commerce, E-Marketplace'},
                     {'title':'ห้องสมุดศาล','img':'assets/images/coj.jpg','url':'https://library.coj.go.th/th/','description':'information website'},
-                    {'title':'thaifexhorec','img':'assets/images/horec.png','url':'https://thaifexhorec-reg.com/th/','description':'register booth'},
-                    // {'title':'stylebangkokfairregistration','img':'assets/images/tcc.png','url':'https://www.stylebangkokfairregistration.com/','description':'register booth'},
-                    {'title':'Bangkok Hospital payment','img':'assets/images/bkk.png','url':'https://smartpayment.bdms.co.th/authen/?linkcode=DYCIRJ','description':'ระบบชำระเงินค่ารักษาพยาบาล'},
-                    {'title':'Bangkok Hospital POS','img':'','url':'','description':'ระบบชำระเงิน POS'},
+                    {'title':'Bangkok Hospital Payment','img':'assets/images/bkk.png','url':'https://smartpayment.bdms.co.th/authen/?linkcode=DYCIRJ','description':'ระบบชำระเงินค่ารักษาพยาบาล'},
+                    {'title':'Bangkok Hospital - POS','img':'','url':'','description':'ระบบชำระเงิน POS'},
                     // {'title':'CMS','img':'assets/images/tumless.jpg','url':'https://tumless.web.app/','description':''},
                   ], 
               }, 
@@ -186,7 +186,7 @@
             <div class="row">
               <div class="col-md-4">
                 <div class="left-image">
-                  <img :src="res.img" alt="" />
+                  <img v-if="res.img" :src="res.img" alt="" />
                 </div>
               </div>
               <div class="col-md-8">
@@ -196,7 +196,7 @@
                     {{ res.description }}
                   </p>
                   <div class="white-button">
-                    <a :href="res.url" target="_blank">view</a>
+                    <a v-if="res.url" :href="res.url" target="_blank">view</a>
                   </div>
                 </div>
               </div>
